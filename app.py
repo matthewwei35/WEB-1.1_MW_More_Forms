@@ -176,7 +176,7 @@ def gif_search():
             {
                 # TODO: Add in key-value pairs for:
                 # - 'q': the search query
-                # - 'key: the API key (defined above)
+                # - 'key': the API key (defined above)
                 # - 'limit': the number of GIFs requested
             })
 
