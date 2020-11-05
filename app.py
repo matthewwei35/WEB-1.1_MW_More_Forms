@@ -167,6 +167,7 @@ pp = PrettyPrinter(indent=4)
 
 @app.route('/gif_search', methods=['GET', 'POST'])
 def gif_search():
+    """Show a form to search for GIFs and show resulting GIFs from Tenor API."""
     if request.method == 'POST':
         # TODO: Get the search query & number of GIFs requested by the user, store each as a 
         # variable
