@@ -144,7 +144,7 @@ def image_filter():
 
         # TODO: Call `apply_filter()` on the file path & filter type
 
-        image_url = f'/static/images/{image.filename}'
+        image_url = f'./static/images/{image.filename}'
 
         context = {
             # TODO: Add context variables here for:
