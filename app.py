@@ -134,6 +134,7 @@ def image_filter():
         
         # TODO: Get the user's chosen filter type (whichever one they chose in the form) and save
         # as a variable
+        # HINT: remember that we're working with a POST route here so which requests function would you use?
         filter_type = ''
         
         # Get the image file submitted by the user
