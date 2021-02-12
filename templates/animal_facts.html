@@ -16,7 +16,9 @@ Animal Facts
             <!-- TODO: Use a for loop to show one option element for each 
                 animal. -->
             <select name="animal">
-                <option value="koala">koala</option>
+                {% for animal in animal_to_fact %}
+                    <option value="{{ animal }}">{{ animal }}</option>
+                {% endfor %}
             </select>
         </label>
 
@@ -32,7 +34,11 @@ Animal Facts
         Here is your animal fact:
     </p>
     <p>
-        <em>Your animal fact goes here.</em>
+        {% if selected_animal_fact == None %}
+            <em>Please select an animal to get a fact.</em>
+        {% else %}
+            <em>{{ selected_animal_fact }}</em>
+        {% endif %}
     </p>
 </section>
 
