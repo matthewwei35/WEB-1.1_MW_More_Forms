@@ -1,13 +1,13 @@
 from flask import Flask, request, render_template
 from PIL import Image, ImageFilter
 from pprint import PrettyPrinter
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 import json
 import os
 import random
 import requests
 
-# load_dotenv()
+load_dotenv()
 
 
 app = Flask(__name__)
@@ -88,10 +88,7 @@ def animal_facts():
     selected_animal_fact = animal_to_fact.get(users_animal)
 
     context = {
-        # TODO: Enter your context variables here for:
-        # - the list of all animals (get from animal_to_fact)
         'animal_to_fact' : animal_to_fact.keys(),
-        # - the chosen animal fact (may be None if the user hasn't filled out the form yet)
         'selected_animal_fact' : selected_animal_fact
     }
     return render_template('animal_facts.html', **context)
