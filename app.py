@@ -137,33 +137,22 @@ def image_filter():
     filter_types = filter_types_dict.keys()
 
     if request.method == 'POST':
-        
-        # TODO: Get the user's chosen filter type (whichever one they chose in the form) and save
-        # as a variable
-        # HINT: remember that we're working with a POST route here so which requests function would you use?
-        filter_type = ''
-        
-        # Get the image file submitted by the user
+        filter_type = request.form.get('filter_type')
         image = request.files.get('users_image')
-
-        # TODO: call `save_image()` on the image & the user's chosen filter type, save the returned
-        # value as the new file path
-
-        # TODO: Call `apply_filter()` on the file path & filter type
-
+        image_file_path = save_image(image, filter_type)
+        apply_filter(image_file_path, filter_type)
         image_url = f'./static/images/{image.filename}'
 
         context = {
-            # TODO: Add context variables here for:
-            # - The full list of filter types
-            # - The image URL
+            'filter_types' : filter_types,
+            'image_url' : image_url
         }
 
         return render_template('image_filter.html', **context)
 
-    else: # if it's a GET request
+    else:
         context = {
-            # TODO: Add context variable here for the full list of filter types
+            'filter_types' : filter_types
         }
         return render_template('image_filter.html', **context)
 
